@@ -1,4 +1,3 @@
-import 'package:Quiz/model/questions.dart';
 import 'package:Quiz/resources/questionBank.dart';
 import 'package:flutter/material.dart';
 
