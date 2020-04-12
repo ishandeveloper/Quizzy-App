@@ -9,7 +9,7 @@ class QuizHome extends StatelessWidget {
         backgroundColor: Colors.deepPurple[900],
         elevation: 0,
         leading: Icon(Icons.question_answer),
-        title: Text('Quizzo'),
+        title: Text('Quiz', style: TextStyle(fontFamily: 'Poppins'),),
       ),
     );
   }
