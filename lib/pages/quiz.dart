@@ -2,7 +2,6 @@ import 'package:Quiz/model/questions.dart';
 import 'package:flutter/material.dart';
 
 import 'about.dart';
-import 'package:Quiz/model/questions.dart';
 
 class QuizHome extends StatefulWidget {
   @override
@@ -36,41 +35,22 @@ class _QuizHomeState extends State<QuizHome> {
     Question(
         q: 'A zero value is considered to be false and a non-zero value is considered to be true in C Programming',
         a: true),
+    Question(
+        q: '= is used for comparison, whereas, == is used for assignment of two quantities in C Programming',
+        a: false),
+    Question(
+        q: 'Blank spaces may be inserted between two words to improve the readability of the statement in C Programming',
+        a: true),
+    Question(
+        q: 'The keywords cannot be used as variable names in C Programming',
+        a: true),
   ];
-  // Question q1= Question(q:'This is a dummy question. Are you feeling good?',a:true);
-  // List<String> questions = [
-  //   'This is a dummy question. Are you feeling good?',
-  //   'This is another dummy question. Are you feeling good?',
-  //   'This is third dummy question. Are you feeling good?',
-  //   'This is fourth dummy question. Are you feeling good?',
-  //   'This is 6 dummy question. Are you feeling good?',
-  //   'This is 7 dummy question. Are you feeling good?',
-  //   'This is 8 dummy question. Are you feeling good?',
-  //   'This is 9 dummy question. Are you feeling good?',
-  //   'This is last dummy question. Are you feeling good?',
-  //   'This is 6 dummy question. Are you feeling good?',
-  //   'This is 7 dummy question. Are you feeling good?',
-  //   'This is 8 dummy question. Are you feeling good?',
-  // ];
-  // List<bool> answers = [
-  //   true,
-  //   false,
-  //   true,
-  //   true,
-  //   false,
-  //   true,
-  //   true,
-  //   false,
-  //   false,
-  //   false,
-  //   false
-  // ];
   var progress;
-  var selectedquestion = 'This is a dummy question. Are you feeling good?';
-  int i = 0;
 
+  int i = 0;
+  var selectedquestion;
   void evaluateAnswerForTrue() {
-    if (answers[i] == true) {
+    if (questionBank[i].questionAnswer == true) {
       correct();
     } else {
       wrong();
@@ -78,7 +58,7 @@ class _QuizHomeState extends State<QuizHome> {
   }
 
   void evaluateAnswerForFalse() {
-    if (answers[i] == false) {
+    if (questionBank[i].questionAnswer == false) {
       correct();
     } else {
       wrong();
@@ -87,8 +67,8 @@ class _QuizHomeState extends State<QuizHome> {
 
   void correct() {
     setState(() {
-      progress = progress + 1 / questions.length;
-      if (i != questions.length) {
+      progress = progress + 1 / questionBank.length;
+      if (i != questionBank.length) {
         scorekeeper.add(
           Icon(
             Icons.check,
@@ -101,15 +81,15 @@ class _QuizHomeState extends State<QuizHome> {
           ),
         );
 
-        selectedquestion = questions[++i];
+        selectedquestion = questionBank[++i].questionText;
       }
     });
   }
 
   void wrong() {
     setState(() {
-      if (i != questions.length) {
-        progress = progress + 1 / questions.length;
+      if (i != questionBank.length) {
+        progress = progress + 1 / questionBank.length;
         scorekeeper.add(
           Icon(
             Icons.close,
@@ -122,7 +102,7 @@ class _QuizHomeState extends State<QuizHome> {
           ),
         );
 
-        selectedquestion = questions[++i];
+        selectedquestion = questionBank[++i].questionText;
       }
     });
   }
@@ -131,7 +111,8 @@ class _QuizHomeState extends State<QuizHome> {
   @override
   void initState() {
     super.initState();
-    progress = 1 / questions.length;
+    progress = 1 / questionBank.length;
+    selectedquestion=questionBank[0].questionText;
   }
 
   Widget build(BuildContext context) {
