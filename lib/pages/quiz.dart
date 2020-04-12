@@ -78,7 +78,7 @@ class _QuizHomeState extends State<QuizHome> {
   void initState() {
     super.initState();
     progress = 1 / questionBank.length;
-    selectedquestion=questionBank[0].questionText;
+    selectedquestion = questionBank[0].questionText;
   }
 
   Widget build(BuildContext context) {
