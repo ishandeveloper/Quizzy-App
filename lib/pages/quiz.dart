@@ -8,9 +8,8 @@ class QuizHome extends StatefulWidget {
 }
 
 class _QuizHomeState extends State<QuizHome> {
-
   List<Widget> scorekeeper = [];
-  List <String> questions =[
+  List<String> questions = [
     'This is a dummy question. Are you feeling good?',
     'This is another dummy question. Are you feeling good?',
     'This is third dummy question. Are you feeling good?',
@@ -23,9 +22,8 @@ class _QuizHomeState extends State<QuizHome> {
     'This is 6 dummy question. Are you feeling good?',
     'This is 7 dummy question. Are you feeling good?',
     'This is 8 dummy question. Are you feeling good?',
-   
   ];
-  List <bool> answers=[
+  List<bool> answers = [
     true,
     false,
     true,
@@ -38,81 +36,76 @@ class _QuizHomeState extends State<QuizHome> {
     false,
     false
   ];
-    var progress;
-  var selectedquestion='This is a dummy question. Are you feeling good?';
-  int i=0;
+  var progress;
+  var selectedquestion = 'This is a dummy question. Are you feeling good?';
+  int i = 0;
 
-  void evaluateAnswerForTrue(){
-    if(answers[i]==true){
+  void evaluateAnswerForTrue() {
+    if (answers[i] == true) {
       correct();
-    }
-    else{
+    } else {
       wrong();
     }
   }
-  void evaluateAnswerForFalse(){
-    if(answers[i]==false){
+
+  void evaluateAnswerForFalse() {
+    if (answers[i] == false) {
       correct();
-    }
-    else{
+    } else {
       wrong();
     }
   }
 
   void correct() {
     setState(() {
-      progress=progress+1/questions.length;
-      if(i!=questions.length){
-      
-      scorekeeper.add(
-        Icon(
-          Icons.check,
-          color: Colors.green[300],
-        ),
-      );
-      scorekeeper.add(
-        SizedBox(
-          width: 10,
-        ),
-      );
-    
-      selectedquestion=questions[++i];
+      progress = progress + 1 / questions.length;
+      if (i != questions.length) {
+        scorekeeper.add(
+          Icon(
+            Icons.check,
+            color: Colors.green[300],
+          ),
+        );
+        scorekeeper.add(
+          SizedBox(
+            width: 10,
+          ),
+        );
+
+        selectedquestion = questions[++i];
       }
     });
   }
 
   void wrong() {
     setState(() {
-      if(i!=questions.length){
-        progress=progress+1/questions.length;
-      scorekeeper.add(
-        Icon(
-          Icons.close,
-          color: Colors.red[400],
-        ),
-      );
-      scorekeeper.add(
-        SizedBox(
-          width: 10,
-        ),
-      );
-      
-      selectedquestion=questions[++i];
+      if (i != questions.length) {
+        progress = progress + 1 / questions.length;
+        scorekeeper.add(
+          Icon(
+            Icons.close,
+            color: Colors.red[400],
+          ),
+        );
+        scorekeeper.add(
+          SizedBox(
+            width: 10,
+          ),
+        );
+
+        selectedquestion = questions[++i];
       }
     });
   }
 
   @override
-
-@override
-void initState() { 
-  super.initState();
-  progress=1/questions.length;
-}
+  @override
+  void initState() {
+    super.initState();
+    progress = 1 / questions.length;
+  }
 
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       backgroundColor: Colors.deepPurple[900],
       appBar: AppBar(
