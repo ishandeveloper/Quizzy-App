@@ -9,9 +9,7 @@ class QuizHome extends StatefulWidget {
 
 class _QuizHomeState extends State<QuizHome> {
   var progress;
-  List<Widget> scorekeeper = [
-    
-  ];
+  List<Widget> scorekeeper = [];
 
   void correct() {
     setState(() {
@@ -177,9 +175,9 @@ class _QuizHomeState extends State<QuizHome> {
                 //   height: 50,
                 // ),
                 Expanded(
-                                  child: Container(
-                    child:Row(
-                        // scrollDirection: Axis.horizontal,
+                  child: Container(
+                    child: Row(
+                      // scrollDirection: Axis.horizontal,
                       children: scorekeeper,
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 15),
