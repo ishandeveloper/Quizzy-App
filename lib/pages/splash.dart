@@ -73,6 +73,28 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             Column(
               children: <Widget>[
+                 Text(
+                        "Made with ♥ by ishandeveloper",
+                        style: TextStyle(
+                          color: Colors.grey[200],
+                          fontSize: 12,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w100
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(height: 10,),
+                Text(
+                        "By clicking Let's play, you agree to our Privacy Policy.",
+                        style: TextStyle(
+                          color: Colors.grey[500],
+                          fontSize: 9,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w100
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(height: 10,),
                 MaterialButton(
                   color: Colors.white,
                   padding: EdgeInsets.all(15),
