@@ -1,5 +1,5 @@
-import 'package:Quiz/pages/score.dart';
-import 'package:Quiz/resources/questionBank.dart';
+import 'package:Quizzy/resources/questionBank.dart';
+import 'score.dart';
 import 'package:flutter/material.dart';
 
 import 'about.dart';

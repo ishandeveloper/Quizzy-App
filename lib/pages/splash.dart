@@ -1,8 +1,5 @@
-import 'package:Quiz/pages/quiz.dart';
-import 'package:Quiz/resources/questionBank.dart';
+import 'package:Quizzy/pages/quiz.dart';
 import 'package:flutter/material.dart';
-
-import 'about.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

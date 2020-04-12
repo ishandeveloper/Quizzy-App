@@ -1,4 +1,4 @@
-import 'package:Quiz/model/questions.dart';
+import 'package:Quizzy/model/questions.dart';
 
 List<Question> questionBank = [
   Question(
