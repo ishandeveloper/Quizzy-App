@@ -8,7 +8,7 @@ class QuizHome extends StatefulWidget {
 }
 
 class _QuizHomeState extends State<QuizHome> {
-  var progress=0.0;
+
   List<Widget> scorekeeper = [];
   List <String> questions =[
     'This is a dummy question. Are you feeling good?',
@@ -38,6 +38,7 @@ class _QuizHomeState extends State<QuizHome> {
     false,
     false
   ];
+    var progress;
   var selectedquestion='This is a dummy question. Are you feeling good?';
   int i=0;
 
@@ -102,6 +103,13 @@ class _QuizHomeState extends State<QuizHome> {
   }
 
   @override
+
+@override
+void initState() { 
+  super.initState();
+  progress=1/questions.length;
+}
+
   Widget build(BuildContext context) {
 
 
