@@ -9,6 +9,41 @@ class QuizHome extends StatefulWidget {
 
 class _QuizHomeState extends State<QuizHome> {
   var progress;
+  List<Widget> scorekeeper = [
+    
+  ];
+
+  void correct() {
+    setState(() {
+      scorekeeper.add(
+        Icon(
+          Icons.check,
+          color: Colors.green[300],
+        ),
+      );
+      scorekeeper.add(
+        SizedBox(
+          width: 10,
+        ),
+      );
+    });
+  }
+
+  void wrong() {
+    setState(() {
+      scorekeeper.add(
+        Icon(
+          Icons.close,
+          color: Colors.red[400],
+        ),
+      );
+      scorekeeper.add(
+        SizedBox(
+          width: 10,
+        ),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +143,9 @@ class _QuizHomeState extends State<QuizHome> {
                   ),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
-                  onPressed: () {},
+                  onPressed: () {
+                    correct();
+                  },
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.01,
@@ -123,7 +160,9 @@ class _QuizHomeState extends State<QuizHome> {
                   ),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
-                  onPressed: () {},
+                  onPressed: () {
+                    wrong();
+                  },
                 ),
               ],
             ),
@@ -137,21 +176,14 @@ class _QuizHomeState extends State<QuizHome> {
                 //   width: 100,
                 //   height: 50,
                 // ),
-                Container(
-                  child: Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.check,
-                        color: Colors.green[300],
-                      ),
-                      SizedBox(width: 10,),
-                      Icon(
-                        Icons.close,
-                        color: Colors.red[400],
-                      ),
-                    ],
+                Expanded(
+                                  child: Container(
+                    child:Row(
+                        // scrollDirection: Axis.horizontal,
+                      children: scorekeeper,
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 15),
                   ),
-                  padding: EdgeInsets.symmetric(horizontal: 30),
                 )
               ],
             ),
