@@ -9,7 +9,21 @@ class QuizHome extends StatelessWidget {
         backgroundColor: Colors.deepPurple[900],
         elevation: 0,
         leading: Icon(Icons.question_answer),
-        title: Text('Quiz', style: TextStyle(fontFamily: 'Poppins'),),
+        title: Text(
+          'Quizzy',
+          style: TextStyle(fontFamily: 'Poppins'),
+        ),
+        actions: <Widget>[
+          GestureDetector(
+            child: Container(
+              child: Icon(Icons.info),
+              margin: EdgeInsets.only(right: 20),
+            ),
+            onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>AboutPage()));
+            },
+          )
+        ],
       ),
     );
   }
