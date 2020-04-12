@@ -1,3 +1,4 @@
+import 'package:Quiz/pages/quiz.dart';
 import 'package:Quiz/resources/questionBank.dart';
 import 'package:flutter/material.dart';
 
@@ -105,7 +106,9 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => QuizHome()));
+                  },
                 ),
               ],
             ),
