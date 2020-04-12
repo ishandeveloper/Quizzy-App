@@ -8,12 +8,61 @@ class QuizHome extends StatefulWidget {
 }
 
 class _QuizHomeState extends State<QuizHome> {
-  var progress;
+  var progress=0.0;
   List<Widget> scorekeeper = [];
-  List <String> questions =[];
-  
+  List <String> questions =[
+    'This is a dummy question. Are you feeling good?',
+    'This is another dummy question. Are you feeling good?',
+    'This is third dummy question. Are you feeling good?',
+    'This is fourth dummy question. Are you feeling good?',
+    'This is 6 dummy question. Are you feeling good?',
+    'This is 7 dummy question. Are you feeling good?',
+    'This is 8 dummy question. Are you feeling good?',
+    'This is 9 dummy question. Are you feeling good?',
+    'This is last dummy question. Are you feeling good?',
+    'This is 6 dummy question. Are you feeling good?',
+    'This is 7 dummy question. Are you feeling good?',
+    'This is 8 dummy question. Are you feeling good?',
+   
+  ];
+  List <bool> answers=[
+    true,
+    false,
+    true,
+    true,
+    false,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false
+  ];
+  var selectedquestion='This is a dummy question. Are you feeling good?';
+  int i=0;
+
+  void evaluateAnswerForTrue(){
+    if(answers[i]==true){
+      correct();
+    }
+    else{
+      wrong();
+    }
+  }
+  void evaluateAnswerForFalse(){
+    if(answers[i]==false){
+      correct();
+    }
+    else{
+      wrong();
+    }
+  }
+
   void correct() {
     setState(() {
+      progress=progress+1/questions.length;
+      if(i!=questions.length){
+      
       scorekeeper.add(
         Icon(
           Icons.check,
@@ -25,11 +74,16 @@ class _QuizHomeState extends State<QuizHome> {
           width: 10,
         ),
       );
+    
+      selectedquestion=questions[++i];
+      }
     });
   }
 
   void wrong() {
     setState(() {
+      if(i!=questions.length){
+        progress=progress+1/questions.length;
       scorekeeper.add(
         Icon(
           Icons.close,
@@ -41,12 +95,15 @@ class _QuizHomeState extends State<QuizHome> {
           width: 10,
         ),
       );
+      
+      selectedquestion=questions[++i];
+      }
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    progress = 0.75;
+
 
     return Scaffold(
       backgroundColor: Colors.deepPurple[900],
@@ -62,8 +119,8 @@ class _QuizHomeState extends State<QuizHome> {
               style: TextStyle(fontFamily: 'Poppins'),
             ),
             Text(
-              "Made with ♥ by ishandeveloper",
-              style: TextStyle(fontFamily: 'Poppins', fontSize: 10),
+              "by ishandeveloper",
+              style: TextStyle(fontFamily: 'Poppins', fontSize: 8),
             ),
           ],
         ),
@@ -114,7 +171,7 @@ class _QuizHomeState extends State<QuizHome> {
                     height: MediaQuery.of(context).size.height * 0.02,
                   ),
                   Text(
-                    'This is a dummy question. Are you feeling good?',
+                    selectedquestion,
                     style: TextStyle(
                       color: Colors.white,
                       fontFamily: 'Poppins',
@@ -143,7 +200,7 @@ class _QuizHomeState extends State<QuizHome> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
                   onPressed: () {
-                    correct();
+                    evaluateAnswerForTrue();
                   },
                 ),
                 SizedBox(
@@ -160,7 +217,7 @@ class _QuizHomeState extends State<QuizHome> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
                   onPressed: () {
-                    wrong();
+                    evaluateAnswerForFalse();
                   },
                 ),
               ],
