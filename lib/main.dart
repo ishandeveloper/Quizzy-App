@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
-void main()=>(runApp(QuizHome()));
+import 'pages/quiz.dart';
 
-class QuizHome extends StatelessWidget {
+void main()=>(runApp(QuizApp()));
+
+class QuizApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
+      debugShowCheckedModeBanner: false,
+      home:QuizHome()
     );
   }
 }
