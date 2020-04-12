@@ -1,3 +1,4 @@
+import 'package:Quiz/pages/score.dart';
 import 'package:Quiz/resources/questionBank.dart';
 import 'package:flutter/material.dart';
 
@@ -12,20 +13,30 @@ class _QuizHomeState extends State<QuizHome> {
   List<Widget> scorekeeper = [];
 
   var progress;
-
+  var correctattempts=0;
   int i = 0;
   var selectedquestion;
   void evaluateAnswerForTrue() {
+    if(i==questionBank.length){
+        Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => ScoreScreen(a:correctattempts,b:i)));
+      }
     if (questionBank[i].questionAnswer == true) {
       correct();
+      correctattempts++;
     } else {
       wrong();
     }
   }
 
   void evaluateAnswerForFalse() {
+    if(i==questionBank.length){
+        Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => ScoreScreen(a:correctattempts,b:i)));
+      }
     if (questionBank[i].questionAnswer == false) {
       correct();
+      correctattempts++;
     } else {
       wrong();
     }
@@ -34,6 +45,10 @@ class _QuizHomeState extends State<QuizHome> {
   void correct() {
     setState(() {
       progress = progress + 1 / questionBank.length;
+      if(i==questionBank.length){
+        Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => ScoreScreen(a:correctattempts,b:i)));
+      }
       if (i != questionBank.length) {
         scorekeeper.add(
           Icon(
@@ -54,6 +69,10 @@ class _QuizHomeState extends State<QuizHome> {
 
   void wrong() {
     setState(() {
+      if(i==questionBank.length){
+        Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => AboutPage()));
+      }
       if (i != questionBank.length) {
         progress = progress + 1 / questionBank.length;
         scorekeeper.add(
