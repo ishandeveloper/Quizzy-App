@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'about.dart';
+
 class QuizHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
