@@ -3,8 +3,15 @@ import 'package:flutter/material.dart';
 import 'about.dart';
 
 class QuizHome extends StatelessWidget {
+
+
+  var progress;
+
   @override
   Widget build(BuildContext context) {
+
+    progress=0.75;
+
     return Scaffold(
       backgroundColor: Colors.deepPurple[900],
       appBar: AppBar(
@@ -24,6 +31,15 @@ class QuizHome extends StatelessWidget {
             onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>AboutPage()));
             },
+          )
+        ],
+      ),
+      body: Column(
+        children: <Widget>[
+          LinearProgressIndicator(
+            backgroundColor: Colors.deepPurple[900],
+            valueColor: new AlwaysStoppedAnimation<Color>(Colors.white),
+            value: progress,
           )
         ],
       ),

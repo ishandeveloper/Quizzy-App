@@ -5,10 +5,10 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF21BFBD),
+      backgroundColor: Colors.deepPurple[900],
       appBar: AppBar(
-        title:Text("About Dictionary",style:TextStyle(color: Colors.white)),
-        backgroundColor: Color(0xFF21BFBD),
+        title:Text("About Quizzy",style:TextStyle(color: Colors.white)),
+        backgroundColor: Colors.deepPurple[900],
         iconTheme: IconThemeData(color: Colors.white),
         elevation: 0,
       ),
