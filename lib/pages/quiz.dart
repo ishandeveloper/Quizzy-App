@@ -10,7 +10,8 @@ class QuizHome extends StatefulWidget {
 class _QuizHomeState extends State<QuizHome> {
   var progress;
   List<Widget> scorekeeper = [];
-
+  List <String> questions =[];
+  
   void correct() {
     setState(() {
       scorekeeper.add(
